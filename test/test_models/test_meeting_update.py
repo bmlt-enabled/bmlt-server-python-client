@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.meeting_update import MeetingUpdate
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.meeting_update import MeetingUpdate
+from bmlt_client import configuration
 
 
 class TestMeetingUpdate(unittest.TestCase):

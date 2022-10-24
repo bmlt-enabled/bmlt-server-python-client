@@ -25,9 +25,9 @@ import frozendict  # noqa: F401
 
 from bmlt_client import schemas  # noqa: F401
 
-from bmlt_client.model.no_service_body_exists import NoServiceBodyExists
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.service_body import ServiceBody
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 
 # Path params
 ServiceBodyIdSchema = schemas.Int64Schema
@@ -74,7 +74,7 @@ _response_for_200 = api_client.OpenApiResponse(
             schema=SchemaFor200ResponseBodyApplicationJson),
     },
 )
-SchemaFor401ResponseBodyApplicationJson = ErrorUnauthenticated
+SchemaFor401ResponseBodyApplicationJson = AuthenticationError
 
 
 @dataclass
@@ -93,7 +93,7 @@ _response_for_401 = api_client.OpenApiResponse(
             schema=SchemaFor401ResponseBodyApplicationJson),
     },
 )
-SchemaFor404ResponseBodyApplicationJson = NoServiceBodyExists
+SchemaFor404ResponseBodyApplicationJson = NotFoundError
 
 
 @dataclass

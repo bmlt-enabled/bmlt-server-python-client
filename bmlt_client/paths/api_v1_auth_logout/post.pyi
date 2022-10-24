@@ -25,7 +25,7 @@ import frozendict  # noqa: F401
 
 from bmlt_client import schemas  # noqa: F401
 
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authentication_error import AuthenticationError
 
 
 
@@ -39,7 +39,7 @@ class ApiResponseFor200(api_client.ApiResponse):
 _response_for_200 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor200,
 )
-SchemaFor401ResponseBodyApplicationJson = ErrorUnauthenticated
+SchemaFor401ResponseBodyApplicationJson = AuthenticationError
 
 
 @dataclass

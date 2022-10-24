@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.user_create import UserCreate
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.user_create import UserCreate
+from bmlt_client import configuration
 
 
 class TestUserCreate(unittest.TestCase):

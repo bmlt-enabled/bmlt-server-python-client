@@ -11,9 +11,8 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
+from bmlt_client.model.authentication_error import AuthenticationError
+from bmlt_client.model.authorization_error import AuthorizationError
 from bmlt_client.model.format import Format
 from bmlt_client.model.format_base import FormatBase
 from bmlt_client.model.format_collection import FormatCollection
@@ -27,10 +26,7 @@ from bmlt_client.model.meeting_collection import MeetingCollection
 from bmlt_client.model.meeting_create import MeetingCreate
 from bmlt_client.model.meeting_partial_update import MeetingPartialUpdate
 from bmlt_client.model.meeting_update import MeetingUpdate
-from bmlt_client.model.no_format_exists import NoFormatExists
-from bmlt_client.model.no_meeting_exists import NoMeetingExists
-from bmlt_client.model.no_service_body_exists import NoServiceBodyExists
-from bmlt_client.model.no_user_exists import NoUserExists
+from bmlt_client.model.not_found_error import NotFoundError
 from bmlt_client.model.service_body import ServiceBody
 from bmlt_client.model.service_body_base import ServiceBodyBase
 from bmlt_client.model.service_body_collection import ServiceBodyCollection

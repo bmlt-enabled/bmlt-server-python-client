@@ -141,9 +141,8 @@ import time
 import bmlt_client
 from pprint import pprint
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
+from bmlt_client.model.authentication_error import AuthenticationError
+from bmlt_client.model.authorization_error import AuthorizationError
 from bmlt_client.model.format import Format
 from bmlt_client.model.format_collection import FormatCollection
 from bmlt_client.model.format_create import FormatCreate
@@ -154,10 +153,7 @@ from bmlt_client.model.meeting_collection import MeetingCollection
 from bmlt_client.model.meeting_create import MeetingCreate
 from bmlt_client.model.meeting_partial_update import MeetingPartialUpdate
 from bmlt_client.model.meeting_update import MeetingUpdate
-from bmlt_client.model.no_format_exists import NoFormatExists
-from bmlt_client.model.no_meeting_exists import NoMeetingExists
-from bmlt_client.model.no_service_body_exists import NoServiceBodyExists
-from bmlt_client.model.no_user_exists import NoUserExists
+from bmlt_client.model.not_found_error import NotFoundError
 from bmlt_client.model.service_body import ServiceBody
 from bmlt_client.model.service_body_collection import ServiceBodyCollection
 from bmlt_client.model.service_body_create import ServiceBodyCreate
@@ -236,9 +232,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [ErrorIncorrectCredentials](docs/models/ErrorIncorrectCredentials.md)
- - [ErrorUnauthenticated](docs/models/ErrorUnauthenticated.md)
- - [ErrorUnauthorized](docs/models/ErrorUnauthorized.md)
+ - [AuthenticationError](docs/models/AuthenticationError.md)
+ - [AuthorizationError](docs/models/AuthorizationError.md)
  - [Format](docs/models/Format.md)
  - [FormatBase](docs/models/FormatBase.md)
  - [FormatCollection](docs/models/FormatCollection.md)
@@ -252,10 +247,7 @@ Class | Method | HTTP request | Description
  - [MeetingCreate](docs/models/MeetingCreate.md)
  - [MeetingPartialUpdate](docs/models/MeetingPartialUpdate.md)
  - [MeetingUpdate](docs/models/MeetingUpdate.md)
- - [NoFormatExists](docs/models/NoFormatExists.md)
- - [NoMeetingExists](docs/models/NoMeetingExists.md)
- - [NoServiceBodyExists](docs/models/NoServiceBodyExists.md)
- - [NoUserExists](docs/models/NoUserExists.md)
+ - [NotFoundError](docs/models/NotFoundError.md)
  - [ServiceBody](docs/models/ServiceBody.md)
  - [ServiceBodyBase](docs/models/ServiceBodyBase.md)
  - [ServiceBodyCollection](docs/models/ServiceBodyCollection.md)

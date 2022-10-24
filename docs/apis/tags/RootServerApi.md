@@ -47,7 +47,7 @@ Revoke token and logout.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authentication_error import AuthenticationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -105,7 +105,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 ### Authorization
@@ -128,8 +128,8 @@ Refresh token.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.token import Token
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -194,7 +194,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 ### Authorization
@@ -216,10 +216,10 @@ Exchange credentials for a new token
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
 from bmlt_client.model.token_credentials import TokenCredentials
 from bmlt_client.model.token import Token
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -297,7 +297,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorIncorrectCredentials**](../../models/ErrorIncorrectCredentials.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### auth_token.ApiResponseFor422
@@ -333,12 +333,11 @@ Creates a format.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.format import Format
 from bmlt_client.model.format_create import FormatCreate
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.no_format_exists import NoFormatExists
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -425,7 +424,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorIncorrectCredentials**](../../models/ErrorIncorrectCredentials.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### create_format.ApiResponseFor403
@@ -438,7 +437,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### create_format.ApiResponseFor404
@@ -451,7 +450,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoFormatExists**](../../models/NoFormatExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### create_format.ApiResponseFor422
@@ -487,12 +486,12 @@ Creates a meeting.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
 from bmlt_client.model.meeting_create import MeetingCreate
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from bmlt_client.model.meeting import Meeting
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
-from bmlt_client.model.no_meeting_exists import NoMeetingExists
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -579,7 +578,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### create_meeting.ApiResponseFor403
@@ -592,7 +591,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### create_meeting.ApiResponseFor404
@@ -605,7 +604,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoMeetingExists**](../../models/NoMeetingExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### create_meeting.ApiResponseFor422
@@ -641,12 +640,12 @@ Creates a service body.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.no_service_body_exists import NoServiceBodyExists
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
 from bmlt_client.model.service_body_create import ServiceBodyCreate
 from bmlt_client.model.service_body import ServiceBody
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -733,7 +732,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### create_service_body.ApiResponseFor403
@@ -746,7 +745,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### create_service_body.ApiResponseFor404
@@ -759,7 +758,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoServiceBodyExists**](../../models/NoServiceBodyExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### create_service_body.ApiResponseFor422
@@ -796,11 +795,10 @@ Creates a user.
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
 from bmlt_client.model.user_create import UserCreate
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.no_user_exists import NoUserExists
 from bmlt_client.model.user import User
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -887,7 +885,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorIncorrectCredentials**](../../models/ErrorIncorrectCredentials.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### create_user.ApiResponseFor403
@@ -900,7 +898,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### create_user.ApiResponseFor404
@@ -913,7 +911,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoUserExists**](../../models/NoUserExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### create_user.ApiResponseFor422
@@ -949,10 +947,10 @@ Deletes a format by id.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
-from bmlt_client.model.no_format_exists import NoFormatExists
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -1039,7 +1037,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### delete_format.ApiResponseFor403
@@ -1052,7 +1050,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### delete_format.ApiResponseFor404
@@ -1065,7 +1063,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoFormatExists**](../../models/NoFormatExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### delete_format.ApiResponseFor422
@@ -1101,9 +1099,9 @@ Deletes a meeting by id.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
-from bmlt_client.model.no_meeting_exists import NoMeetingExists
+from bmlt_client.model.authentication_error import AuthenticationError
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -1189,7 +1187,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### delete_meeting.ApiResponseFor403
@@ -1202,7 +1200,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### delete_meeting.ApiResponseFor404
@@ -1215,7 +1213,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoMeetingExists**](../../models/NoMeetingExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 ### Authorization
@@ -1238,9 +1236,9 @@ Deletes a service body by id.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.no_service_body_exists import NoServiceBodyExists
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authentication_error import AuthenticationError
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -1326,7 +1324,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### delete_service_body.ApiResponseFor403
@@ -1339,7 +1337,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### delete_service_body.ApiResponseFor404
@@ -1352,7 +1350,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoServiceBodyExists**](../../models/NoServiceBodyExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 ### Authorization
@@ -1375,10 +1373,10 @@ Deletes a user by id
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
-from bmlt_client.model.no_user_exists import NoUserExists
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -1465,7 +1463,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### delete_user.ApiResponseFor403
@@ -1478,7 +1476,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### delete_user.ApiResponseFor404
@@ -1491,7 +1489,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoUserExists**](../../models/NoUserExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### delete_user.ApiResponseFor422
@@ -1527,9 +1525,9 @@ Retrieve a format
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.format import Format
-from bmlt_client.model.no_format_exists import NoFormatExists
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -1621,7 +1619,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### get_format.ApiResponseFor404
@@ -1634,7 +1632,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoFormatExists**](../../models/NoFormatExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 ### Authorization
@@ -1657,8 +1655,8 @@ Retrieve formats
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.format_collection import FormatCollection
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -1723,7 +1721,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 ### Authorization
@@ -1746,9 +1744,9 @@ Retrieve a meeting.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
+from bmlt_client.model.not_found_error import NotFoundError
 from bmlt_client.model.meeting import Meeting
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
-from bmlt_client.model.no_meeting_exists import NoMeetingExists
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -1840,7 +1838,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### get_meeting.ApiResponseFor404
@@ -1853,7 +1851,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoMeetingExists**](../../models/NoMeetingExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 ### Authorization
@@ -1876,9 +1874,9 @@ Retrieve meetings for authenticated user.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
 from bmlt_client.model.meeting_collection import MeetingCollection
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -1998,7 +1996,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### get_meetings.ApiResponseFor422
@@ -2034,8 +2032,8 @@ Retrieve service bodies for authenticated user.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.service_body_collection import ServiceBodyCollection
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -2100,7 +2098,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 ### Authorization
@@ -2123,9 +2121,9 @@ Retrieve a single service body by id.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.no_service_body_exists import NoServiceBodyExists
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.service_body import ServiceBody
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -2217,7 +2215,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### get_service_body.ApiResponseFor404
@@ -2230,7 +2228,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoServiceBodyExists**](../../models/NoServiceBodyExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 ### Authorization
@@ -2253,9 +2251,9 @@ Retrieve single user.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.no_user_exists import NoUserExists
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.user import User
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -2347,7 +2345,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### get_user.ApiResponseFor404
@@ -2360,7 +2358,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoUserExists**](../../models/NoUserExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 ### Authorization
@@ -2383,7 +2381,7 @@ Retrieve users for authenticated user.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.user_collection import UserCollection
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
@@ -2449,7 +2447,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 ### Authorization
@@ -2472,10 +2470,10 @@ Patches a user by id.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
-from bmlt_client.model.no_user_exists import NoUserExists
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from bmlt_client.model.user_partial_update import UserPartialUpdate
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
@@ -2575,7 +2573,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### partial_update_user.ApiResponseFor403
@@ -2588,7 +2586,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### partial_update_user.ApiResponseFor404
@@ -2601,7 +2599,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoUserExists**](../../models/NoUserExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### partial_update_user.ApiResponseFor422
@@ -2637,11 +2635,11 @@ Patches a single format by id.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.format_partial_update import FormatPartialUpdate
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
-from bmlt_client.model.no_format_exists import NoFormatExists
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -2740,7 +2738,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### patch_format.ApiResponseFor403
@@ -2753,7 +2751,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### patch_format.ApiResponseFor404
@@ -2766,7 +2764,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoFormatExists**](../../models/NoFormatExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### patch_format.ApiResponseFor422
@@ -2802,11 +2800,11 @@ Patches a meeting by id
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
 from bmlt_client.model.meeting_partial_update import MeetingPartialUpdate
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
-from bmlt_client.model.no_meeting_exists import NoMeetingExists
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -2905,7 +2903,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### patch_meeting.ApiResponseFor403
@@ -2918,7 +2916,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### patch_meeting.ApiResponseFor404
@@ -2931,7 +2929,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoMeetingExists**](../../models/NoMeetingExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### patch_meeting.ApiResponseFor422
@@ -2967,11 +2965,11 @@ Patches a single service body by id.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.no_service_body_exists import NoServiceBodyExists
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
+from bmlt_client.model.authorization_error import AuthorizationError
 from bmlt_client.model.service_body_partial_update import ServiceBodyPartialUpdate
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -3070,7 +3068,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### patch_service_body.ApiResponseFor403
@@ -3083,7 +3081,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### patch_service_body.ApiResponseFor404
@@ -3096,7 +3094,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoServiceBodyExists**](../../models/NoServiceBodyExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### patch_service_body.ApiResponseFor422
@@ -3132,10 +3130,9 @@ Updates a format.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.no_format_exists import NoFormatExists
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 from bmlt_client.model.format_update import FormatUpdate
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
@@ -3235,7 +3232,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorIncorrectCredentials**](../../models/ErrorIncorrectCredentials.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### update_format.ApiResponseFor403
@@ -3248,7 +3245,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### update_format.ApiResponseFor404
@@ -3261,7 +3258,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoFormatExists**](../../models/NoFormatExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### update_format.ApiResponseFor422
@@ -3297,11 +3294,11 @@ Updates a meeting.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.meeting_update import MeetingUpdate
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
-from bmlt_client.model.no_meeting_exists import NoMeetingExists
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -3400,7 +3397,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### update_meeting.ApiResponseFor403
@@ -3413,7 +3410,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### update_meeting.ApiResponseFor404
@@ -3426,7 +3423,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoMeetingExists**](../../models/NoMeetingExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### update_meeting.ApiResponseFor422
@@ -3462,11 +3459,11 @@ Updates a single service body.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
-from bmlt_client.model.no_service_body_exists import NoServiceBodyExists
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
 from bmlt_client.model.service_body_update import ServiceBodyUpdate
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -3565,7 +3562,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### update_service_body.ApiResponseFor403
@@ -3578,7 +3575,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthorized**](../../models/ErrorUnauthorized.md) |  | 
+[**AuthorizationError**](../../models/AuthorizationError.md) |  | 
 
 
 #### update_service_body.ApiResponseFor404
@@ -3591,7 +3588,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoServiceBodyExists**](../../models/NoServiceBodyExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### update_service_body.ApiResponseFor422
@@ -3627,11 +3624,10 @@ Updates a user.
 ```python
 import bmlt_client
 from bmlt_client.apis.tags import root_server_api
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
 from bmlt_client.model.user_update import UserUpdate
-from bmlt_client.model.no_user_exists import NoUserExists
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost:8000/main_server
 # See configuration.py for a list of all supported configuration parameters.
@@ -3730,7 +3726,7 @@ headers | Unset | headers were not defined |
 # SchemaFor401ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorIncorrectCredentials**](../../models/ErrorIncorrectCredentials.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### update_user.ApiResponseFor403
@@ -3743,7 +3739,7 @@ headers | Unset | headers were not defined |
 # SchemaFor403ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ErrorUnauthenticated**](../../models/ErrorUnauthenticated.md) |  | 
+[**AuthenticationError**](../../models/AuthenticationError.md) |  | 
 
 
 #### update_user.ApiResponseFor404
@@ -3756,7 +3752,7 @@ headers | Unset | headers were not defined |
 # SchemaFor404ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**NoUserExists**](../../models/NoUserExists.md) |  | 
+[**NotFoundError**](../../models/NotFoundError.md) |  | 
 
 
 #### update_user.ApiResponseFor422

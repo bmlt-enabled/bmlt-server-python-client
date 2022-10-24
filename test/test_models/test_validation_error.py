@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.validation_error import ValidationError
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.validation_error import ValidationError
+from bmlt_client import configuration
 
 
 class TestValidationError(unittest.TestCase):

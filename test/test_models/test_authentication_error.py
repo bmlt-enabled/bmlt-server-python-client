@@ -11,13 +11,13 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.error_unauthenticated import ErrorUnauthenticated
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.authentication_error import AuthenticationError
+from bmlt_client import configuration
 
 
-class TestErrorUnauthenticated(unittest.TestCase):
-    """ErrorUnauthenticated unit test stubs"""
+class TestAuthenticationError(unittest.TestCase):
+    """AuthenticationError unit test stubs"""
     _configuration = configuration.Configuration()
 
 

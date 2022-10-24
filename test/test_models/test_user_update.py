@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.user_update import UserUpdate
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.user_update import UserUpdate
+from bmlt_client import configuration
 
 
 class TestUserUpdate(unittest.TestCase):

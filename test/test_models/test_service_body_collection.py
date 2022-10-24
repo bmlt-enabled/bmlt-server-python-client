@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.service_body_collection import ServiceBodyCollection
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.service_body_collection import ServiceBodyCollection
+from bmlt_client import configuration
 
 
 class TestServiceBodyCollection(unittest.TestCase):

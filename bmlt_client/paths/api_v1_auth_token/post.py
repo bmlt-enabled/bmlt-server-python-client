@@ -25,10 +25,10 @@ import frozendict  # noqa: F401
 
 from bmlt_client import schemas  # noqa: F401
 
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
 from bmlt_client.model.token_credentials import TokenCredentials
 from bmlt_client.model.token import Token
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
 
 from . import path
 
@@ -62,7 +62,7 @@ _response_for_201 = api_client.OpenApiResponse(
             schema=SchemaFor201ResponseBodyApplicationJson),
     },
 )
-SchemaFor401ResponseBodyApplicationJson = ErrorIncorrectCredentials
+SchemaFor401ResponseBodyApplicationJson = AuthenticationError
 
 
 @dataclass

@@ -25,12 +25,12 @@ import frozendict  # noqa: F401
 
 from bmlt_client import schemas  # noqa: F401
 
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
-from bmlt_client.model.error_unauthorized import ErrorUnauthorized
 from bmlt_client.model.meeting_create import MeetingCreate
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client.model.not_found_error import NotFoundError
 from bmlt_client.model.meeting import Meeting
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
-from bmlt_client.model.no_meeting_exists import NoMeetingExists
 
 # body param
 SchemaForRequestBodyApplicationJson = MeetingCreate
@@ -62,7 +62,7 @@ _response_for_201 = api_client.OpenApiResponse(
             schema=SchemaFor201ResponseBodyApplicationJson),
     },
 )
-SchemaFor401ResponseBodyApplicationJson = ErrorUnauthenticated
+SchemaFor401ResponseBodyApplicationJson = AuthenticationError
 
 
 @dataclass
@@ -81,7 +81,7 @@ _response_for_401 = api_client.OpenApiResponse(
             schema=SchemaFor401ResponseBodyApplicationJson),
     },
 )
-SchemaFor403ResponseBodyApplicationJson = ErrorUnauthorized
+SchemaFor403ResponseBodyApplicationJson = AuthorizationError
 
 
 @dataclass
@@ -100,7 +100,7 @@ _response_for_403 = api_client.OpenApiResponse(
             schema=SchemaFor403ResponseBodyApplicationJson),
     },
 )
-SchemaFor404ResponseBodyApplicationJson = NoMeetingExists
+SchemaFor404ResponseBodyApplicationJson = NotFoundError
 
 
 @dataclass

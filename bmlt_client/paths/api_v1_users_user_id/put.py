@@ -25,11 +25,10 @@ import frozendict  # noqa: F401
 
 from bmlt_client import schemas  # noqa: F401
 
+from bmlt_client.model.authentication_error import AuthenticationError
 from bmlt_client.model.validation_error import ValidationError
 from bmlt_client.model.user_update import UserUpdate
-from bmlt_client.model.no_user_exists import NoUserExists
-from bmlt_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
-from bmlt_client.model.error_unauthenticated import ErrorUnauthenticated
+from bmlt_client.model.not_found_error import NotFoundError
 
 from . import path
 
@@ -85,7 +84,7 @@ class ApiResponseFor204(api_client.ApiResponse):
 _response_for_204 = api_client.OpenApiResponse(
     response_cls=ApiResponseFor204,
 )
-SchemaFor401ResponseBodyApplicationJson = ErrorIncorrectCredentials
+SchemaFor401ResponseBodyApplicationJson = AuthenticationError
 
 
 @dataclass
@@ -104,7 +103,7 @@ _response_for_401 = api_client.OpenApiResponse(
             schema=SchemaFor401ResponseBodyApplicationJson),
     },
 )
-SchemaFor403ResponseBodyApplicationJson = ErrorUnauthenticated
+SchemaFor403ResponseBodyApplicationJson = AuthenticationError
 
 
 @dataclass
@@ -123,7 +122,7 @@ _response_for_403 = api_client.OpenApiResponse(
             schema=SchemaFor403ResponseBodyApplicationJson),
     },
 )
-SchemaFor404ResponseBodyApplicationJson = NoUserExists
+SchemaFor404ResponseBodyApplicationJson = NotFoundError
 
 
 @dataclass

@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.token_credentials import TokenCredentials
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.token_credentials import TokenCredentials
+from bmlt_client import configuration
 
 
 class TestTokenCredentials(unittest.TestCase):

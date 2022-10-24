@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.format_base import FormatBase
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.format_base import FormatBase
+from bmlt_client import configuration
 
 
 class TestFormatBase(unittest.TestCase):

@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.user import User
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.user import User
+from bmlt_client import configuration
 
 
 class TestUser(unittest.TestCase):

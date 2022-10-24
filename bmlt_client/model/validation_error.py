@@ -34,6 +34,10 @@ class ValidationError(
 
 
     class MetaOapg:
+        required = {
+            "message",
+            "errors",
+        }
         
         class properties:
             message = schemas.StrSchema
@@ -93,6 +97,9 @@ class ValidationError(
                 "errors": errors,
             }
     
+    message: MetaOapg.properties.message
+    errors: MetaOapg.properties.errors
+    
     @typing.overload
     def __getitem__(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
@@ -108,10 +115,10 @@ class ValidationError(
     
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> typing.Union[MetaOapg.properties.message, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["message"]) -> MetaOapg.properties.message: ...
     
     @typing.overload
-    def get_item_oapg(self, name: typing_extensions.Literal["errors"]) -> typing.Union[MetaOapg.properties.errors, schemas.Unset]: ...
+    def get_item_oapg(self, name: typing_extensions.Literal["errors"]) -> MetaOapg.properties.errors: ...
     
     @typing.overload
     def get_item_oapg(self, name: str) -> typing.Union[schemas.UnsetAnyTypeSchema, schemas.Unset]: ...
@@ -123,8 +130,8 @@ class ValidationError(
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict.frozendict, ],
-        message: typing.Union[MetaOapg.properties.message, str, schemas.Unset] = schemas.unset,
-        errors: typing.Union[MetaOapg.properties.errors, dict, frozendict.frozendict, schemas.Unset] = schemas.unset,
+        message: typing.Union[MetaOapg.properties.message, str, ],
+        errors: typing.Union[MetaOapg.properties.errors, dict, frozendict.frozendict, ],
         _configuration: typing.Optional[schemas.Configuration] = None,
         **kwargs: typing.Union[schemas.AnyTypeSchema, dict, frozendict.frozendict, str, date, datetime, uuid.UUID, int, float, decimal.Decimal, None, list, tuple, bytes],
     ) -> 'ValidationError':

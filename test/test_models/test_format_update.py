@@ -11,9 +11,9 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.format_update import FormatUpdate
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.format_update import FormatUpdate
+from bmlt_client import configuration
 
 
 class TestFormatUpdate(unittest.TestCase):

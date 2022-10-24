@@ -11,13 +11,13 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.no_meeting_exists import NoMeetingExists
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.authorization_error import AuthorizationError
+from bmlt_client import configuration
 
 
-class TestNoMeetingExists(unittest.TestCase):
-    """NoMeetingExists unit test stubs"""
+class TestAuthorizationError(unittest.TestCase):
+    """AuthorizationError unit test stubs"""
     _configuration = configuration.Configuration()
 
 

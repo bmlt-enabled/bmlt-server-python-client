@@ -11,13 +11,13 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.error_incorrect_credentials import ErrorIncorrectCredentials
-from openapi_client import configuration
+import bmlt_client
+from bmlt_client.model.not_found_error import NotFoundError
+from bmlt_client import configuration
 
 
-class TestErrorIncorrectCredentials(unittest.TestCase):
-    """ErrorIncorrectCredentials unit test stubs"""
+class TestNotFoundError(unittest.TestCase):
+    """NotFoundError unit test stubs"""
     _configuration = configuration.Configuration()
 
 
