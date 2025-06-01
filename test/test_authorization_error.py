@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.authorization_error import AuthorizationError  # noqa: E501
+from bmlt_client.models.authorization_error import AuthorizationError
 
 class TestAuthorizationError(unittest.TestCase):
     """AuthorizationError unit test stubs"""
@@ -28,12 +27,12 @@ class TestAuthorizationError(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AuthorizationError:
         """Test AuthorizationError
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AuthorizationError`
         """
-        model = AuthorizationError()  # noqa: E501
+        model = AuthorizationError()
         if include_optional:
             return AuthorizationError(
                 message = 'This action is unauthorized.'

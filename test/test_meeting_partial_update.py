@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.meeting_partial_update import MeetingPartialUpdate  # noqa: E501
+from bmlt_client.models.meeting_partial_update import MeetingPartialUpdate
 
 class TestMeetingPartialUpdate(unittest.TestCase):
     """MeetingPartialUpdate unit test stubs"""
@@ -28,12 +27,12 @@ class TestMeetingPartialUpdate(unittest.TestCase):
 
     def make_instance(self, include_optional) -> MeetingPartialUpdate:
         """Test MeetingPartialUpdate
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `MeetingPartialUpdate`
         """
-        model = MeetingPartialUpdate()  # noqa: E501
+        model = MeetingPartialUpdate()
         if include_optional:
             return MeetingPartialUpdate(
                 service_body_id = 0,
@@ -72,8 +71,9 @@ class TestMeetingPartialUpdate(unittest.TestCase):
                 contact_email_1 = 'string',
                 contact_email_2 = 'string',
                 bus_lines = 'string',
-                train_line = 'string',
-                comments = 'string'
+                train_lines = 'string',
+                comments = 'string',
+                custom_fields = {key1=value1, key2=value2}
             )
         else:
             return MeetingPartialUpdate(

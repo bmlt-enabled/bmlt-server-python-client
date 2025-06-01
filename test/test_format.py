@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.format import Format  # noqa: E501
+from bmlt_client.models.format import Format
 
 class TestFormat(unittest.TestCase):
     """Format unit test stubs"""
@@ -28,12 +27,12 @@ class TestFormat(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Format:
         """Test Format
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Format`
         """
-        model = Format()  # noqa: E501
+        model = Format()
         if include_optional:
             return Format(
                 world_id = 'string',

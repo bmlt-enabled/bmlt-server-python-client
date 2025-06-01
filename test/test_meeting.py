@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.meeting import Meeting  # noqa: E501
+from bmlt_client.models.meeting import Meeting
 
 class TestMeeting(unittest.TestCase):
     """Meeting unit test stubs"""
@@ -28,12 +27,12 @@ class TestMeeting(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Meeting:
         """Test Meeting
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Meeting`
         """
-        model = Meeting()  # noqa: E501
+        model = Meeting()
         if include_optional:
             return Meeting(
                 service_body_id = 0,
@@ -72,8 +71,9 @@ class TestMeeting(unittest.TestCase):
                 contact_email_1 = 'string',
                 contact_email_2 = 'string',
                 bus_lines = 'string',
-                train_line = 'string',
+                train_lines = 'string',
                 comments = 'string',
+                custom_fields = {key1=value1, key2=value2},
                 id = 0
             )
         else:

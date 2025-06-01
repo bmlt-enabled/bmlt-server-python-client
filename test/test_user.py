@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.user import User  # noqa: E501
+from bmlt_client.models.user import User
 
 class TestUser(unittest.TestCase):
     """User unit test stubs"""
@@ -28,12 +27,12 @@ class TestUser(unittest.TestCase):
 
     def make_instance(self, include_optional) -> User:
         """Test User
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `User`
         """
-        model = User()  # noqa: E501
+        model = User()
         if include_optional:
             return User(
                 username = 'string',
@@ -41,7 +40,7 @@ class TestUser(unittest.TestCase):
                 display_name = 'string',
                 description = 'string',
                 email = 'string',
-                owner_id = '0',
+                owner_id = 0,
                 id = 0
             )
         else:
@@ -51,7 +50,7 @@ class TestUser(unittest.TestCase):
                 display_name = 'string',
                 description = 'string',
                 email = 'string',
-                owner_id = '0',
+                owner_id = 0,
                 id = 0,
         )
         """

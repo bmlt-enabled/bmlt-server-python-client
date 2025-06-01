@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.service_body import ServiceBody  # noqa: E501
+from bmlt_client.models.service_body import ServiceBody
 
 class TestServiceBody(unittest.TestCase):
     """ServiceBody unit test stubs"""
@@ -28,12 +27,12 @@ class TestServiceBody(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ServiceBody:
         """Test ServiceBody
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ServiceBody`
         """
-        model = ServiceBody()  # noqa: E501
+        model = ServiceBody()
         if include_optional:
             return ServiceBody(
                 parent_id = 0,

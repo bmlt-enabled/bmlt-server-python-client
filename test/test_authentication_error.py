@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.authentication_error import AuthenticationError  # noqa: E501
+from bmlt_client.models.authentication_error import AuthenticationError
 
 class TestAuthenticationError(unittest.TestCase):
     """AuthenticationError unit test stubs"""
@@ -28,12 +27,12 @@ class TestAuthenticationError(unittest.TestCase):
 
     def make_instance(self, include_optional) -> AuthenticationError:
         """Test AuthenticationError
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `AuthenticationError`
         """
-        model = AuthenticationError()  # noqa: E501
+        model = AuthenticationError()
         if include_optional:
             return AuthenticationError(
                 message = 'Unauthenticated.'

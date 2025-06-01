@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.error_test import ErrorTest  # noqa: E501
+from bmlt_client.models.error_test import ErrorTest
 
 class TestErrorTest(unittest.TestCase):
     """ErrorTest unit test stubs"""
@@ -28,12 +27,12 @@ class TestErrorTest(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ErrorTest:
         """Test ErrorTest
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ErrorTest`
         """
-        model = ErrorTest()  # noqa: E501
+        model = ErrorTest()
         if include_optional:
             return ErrorTest(
                 arbitrary_string = 'string',

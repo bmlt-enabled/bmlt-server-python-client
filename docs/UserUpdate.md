@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **str** |  | 
@@ -9,7 +10,7 @@ Name | Type | Description | Notes
 **display_name** | **str** |  | 
 **description** | **str** |  | [optional] 
 **email** | **str** |  | [optional] 
-**owner_id** | **str** |  | [optional] 
+**owner_id** | **int** |  | [optional] 
 **password** | **str** |  | [optional] 
 
 ## Example
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of UserUpdate from a JSON string
 user_update_instance = UserUpdate.from_json(json)
 # print the JSON string representation of the object
-print UserUpdate.to_json()
+print(UserUpdate.to_json())
 
 # convert the object into a dict
 user_update_dict = user_update_instance.to_dict()
 # create an instance of UserUpdate from a dict
-user_update_form_dict = user_update.from_dict(user_update_dict)
+user_update_from_dict = UserUpdate.from_dict(user_update_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

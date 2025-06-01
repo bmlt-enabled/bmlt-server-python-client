@@ -7,8 +7,8 @@ generate: openapi.json
 	    -i openapi.json \
 	    -g python \
 	    -p packageName=bmlt_client \
-	    -p projectName=bmlt-root-server-client \
-		--git-repo-id=bmlt-root-server-python-client \
+	    -p projectName=bmlt-server-client \
+		--git-repo-id=bmlt-server-python-client \
 		--git-user-id=bmlt-enabled \
 	    -o .
 

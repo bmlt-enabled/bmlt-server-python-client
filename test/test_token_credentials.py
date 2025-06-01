@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.token_credentials import TokenCredentials  # noqa: E501
+from bmlt_client.models.token_credentials import TokenCredentials
 
 class TestTokenCredentials(unittest.TestCase):
     """TokenCredentials unit test stubs"""
@@ -28,21 +27,21 @@ class TestTokenCredentials(unittest.TestCase):
 
     def make_instance(self, include_optional) -> TokenCredentials:
         """Test TokenCredentials
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `TokenCredentials`
         """
-        model = TokenCredentials()  # noqa: E501
+        model = TokenCredentials()
         if include_optional:
             return TokenCredentials(
-                password = 'PassWord12345',
-                username = 'MyUsername'
+                username = 'MyUsername',
+                password = 'PassWord12345'
             )
         else:
             return TokenCredentials(
-                password = 'PassWord12345',
                 username = 'MyUsername',
+                password = 'PassWord12345',
         )
         """
 

@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.validation_error import ValidationError  # noqa: E501
+from bmlt_client.models.validation_error import ValidationError
 
 class TestValidationError(unittest.TestCase):
     """ValidationError unit test stubs"""
@@ -28,12 +27,12 @@ class TestValidationError(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ValidationError:
         """Test ValidationError
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ValidationError`
         """
-        model = ValidationError()  # noqa: E501
+        model = ValidationError()
         if include_optional:
             return ValidationError(
                 message = 'The field is required. (and 1 more error)',

@@ -26,6 +26,7 @@ from bmlt_client.models.format_translation import FormatTranslation
 from bmlt_client.models.format_update import FormatUpdate
 from bmlt_client.models.meeting import Meeting
 from bmlt_client.models.meeting_base import MeetingBase
+from bmlt_client.models.meeting_change_resource import MeetingChangeResource
 from bmlt_client.models.meeting_create import MeetingCreate
 from bmlt_client.models.meeting_partial_update import MeetingPartialUpdate
 from bmlt_client.models.meeting_update import MeetingUpdate

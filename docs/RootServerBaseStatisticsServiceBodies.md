@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **num_zones** | **int** |  | 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of RootServerBaseStatisticsServiceBodies from a JSON string
 root_server_base_statistics_service_bodies_instance = RootServerBaseStatisticsServiceBodies.from_json(json)
 # print the JSON string representation of the object
-print RootServerBaseStatisticsServiceBodies.to_json()
+print(RootServerBaseStatisticsServiceBodies.to_json())
 
 # convert the object into a dict
 root_server_base_statistics_service_bodies_dict = root_server_base_statistics_service_bodies_instance.to_dict()
 # create an instance of RootServerBaseStatisticsServiceBodies from a dict
-root_server_base_statistics_service_bodies_form_dict = root_server_base_statistics_service_bodies.from_dict(root_server_base_statistics_service_bodies_dict)
+root_server_base_statistics_service_bodies_from_dict = RootServerBaseStatisticsServiceBodies.from_dict(root_server_base_statistics_service_bodies_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.root_server_base_statistics import RootServerBaseStatistics  # noqa: E501
+from bmlt_client.models.root_server_base_statistics import RootServerBaseStatistics
 
 class TestRootServerBaseStatistics(unittest.TestCase):
     """RootServerBaseStatistics unit test stubs"""
@@ -28,12 +27,12 @@ class TestRootServerBaseStatistics(unittest.TestCase):
 
     def make_instance(self, include_optional) -> RootServerBaseStatistics:
         """Test RootServerBaseStatistics
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `RootServerBaseStatistics`
         """
-        model = RootServerBaseStatistics()  # noqa: E501
+        model = RootServerBaseStatistics()
         if include_optional:
             return RootServerBaseStatistics(
                 service_bodies = bmlt_client.models.root_server_base_statistics_service_bodies.RootServerBase_statistics_serviceBodies(

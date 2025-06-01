@@ -18,7 +18,9 @@ Method | HTTP request | Description
 [**delete_user**](RootServerApi.md#delete_user) | **DELETE** /api/v1/users/{userId} | Deletes a user
 [**get_format**](RootServerApi.md#get_format) | **GET** /api/v1/formats/{formatId} | Retrieves a format
 [**get_formats**](RootServerApi.md#get_formats) | **GET** /api/v1/formats | Retrieves formats
+[**get_laravel_log**](RootServerApi.md#get_laravel_log) | **GET** /api/v1/logs/laravel | Retrieves laravel log
 [**get_meeting**](RootServerApi.md#get_meeting) | **GET** /api/v1/meetings/{meetingId} | Retrieves a meeting
+[**get_meeting_changes**](RootServerApi.md#get_meeting_changes) | **GET** /api/v1/meetings/{meetingId}/changes | Retrieve changes for a meeting
 [**get_meetings**](RootServerApi.md#get_meetings) | **GET** /api/v1/meetings | Retrieves meetings
 [**get_root_server**](RootServerApi.md#get_root_server) | **GET** /api/v1/rootservers/{rootServerId} | Retrieves a root server
 [**get_root_servers**](RootServerApi.md#get_root_servers) | **GET** /api/v1/rootservers | Retrieves root servers
@@ -46,9 +48,8 @@ Revoke token and logout.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.rest import ApiException
 from pprint import pprint
@@ -81,6 +82,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -97,6 +99,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when token was logged out. |  -  |
@@ -114,9 +117,8 @@ Refresh token.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.token import Token
 from bmlt_client.rest import ApiException
@@ -152,6 +154,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -168,6 +171,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when refresh is successful. |  -  |
@@ -184,9 +188,8 @@ Exchange credentials for a new token
 
 ### Example
 
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.token import Token
 from bmlt_client.models.token_credentials import TokenCredentials
@@ -219,6 +222,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **token_credentials** | [**TokenCredentials**](TokenCredentials.md)| User credentials | 
@@ -237,10 +241,12 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when POST is successful. |  -  |
 **401** | Returns when credentials are incorrect. |  -  |
+**403** | Returns when unauthorized. |  -  |
 **422** | Validation error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -255,9 +261,8 @@ Tests some errors.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.error_test import ErrorTest
 from bmlt_client.rest import ApiException
@@ -295,6 +300,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **error_test** | [**ErrorTest**](ErrorTest.md)| Pass in error test object. | 
@@ -313,6 +319,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns when POST is successful. |  -  |
@@ -332,9 +339,8 @@ Creates a format.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.format import Format
 from bmlt_client.models.format_create import FormatCreate
@@ -373,6 +379,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **format_create** | [**FormatCreate**](FormatCreate.md)| Pass in format object | 
@@ -391,6 +398,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns when POST is successful. |  -  |
@@ -411,9 +419,8 @@ Creates a meeting.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.meeting import Meeting
 from bmlt_client.models.meeting_create import MeetingCreate
@@ -452,6 +459,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **meeting_create** | [**MeetingCreate**](MeetingCreate.md)| Pass in meeting object | 
@@ -470,6 +478,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns when POST is successful. |  -  |
@@ -490,9 +499,8 @@ Creates a service body.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.service_body import ServiceBody
 from bmlt_client.models.service_body_create import ServiceBodyCreate
@@ -531,6 +539,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_body_create** | [**ServiceBodyCreate**](ServiceBodyCreate.md)| Pass in service body object | 
@@ -549,6 +558,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns when POST is successful. |  -  |
@@ -569,9 +579,8 @@ Creates a user.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.user import User
 from bmlt_client.models.user_create import UserCreate
@@ -610,6 +619,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_create** | [**UserCreate**](UserCreate.md)| Pass in user object | 
@@ -628,6 +638,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns when POST is successful. |  -  |
@@ -648,9 +659,8 @@ Deletes a format by id.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.rest import ApiException
 from pprint import pprint
@@ -685,6 +695,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **format_id** | **int**| ID of format | 
@@ -703,12 +714,14 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
 **401** | Returns when not authenticated |  -  |
 **403** | Returns when unauthorized |  -  |
 **404** | Returns when no format exists. |  -  |
+**409** | Returns when format has meetings assigned. |  -  |
 **422** | Validation error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -723,9 +736,8 @@ Deletes a meeting by id.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.rest import ApiException
 from pprint import pprint
@@ -760,6 +772,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **meeting_id** | **int**| ID of meeting | 
@@ -778,6 +791,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -797,9 +811,8 @@ Deletes a service body by id.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.rest import ApiException
 from pprint import pprint
@@ -834,6 +847,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_body_id** | **int**| ID of service body | 
@@ -852,6 +866,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -872,9 +887,8 @@ Deletes a user by id
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.rest import ApiException
 from pprint import pprint
@@ -909,6 +923,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| ID of user | 
@@ -927,13 +942,14 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
 **401** | Returns when not authenticated |  -  |
 **403** | Returns when unauthorized |  -  |
 **404** | Returns when no user exists. |  -  |
-**422** | Validation error. |  -  |
+**409** | Returns when user is still referenced by service bodies. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -947,9 +963,8 @@ Retrieve a format
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.format import Format
 from bmlt_client.rest import ApiException
@@ -987,6 +1002,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **format_id** | **int**| ID of format | 
@@ -1005,6 +1021,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when user is authenticated. |  -  |
@@ -1023,9 +1040,8 @@ Retrieve formats
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.format import Format
 from bmlt_client.rest import ApiException
@@ -1061,6 +1077,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1077,10 +1094,84 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when user is authenticated. |  -  |
 **401** | Returns when not authenticated |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_laravel_log**
+> bytearray get_laravel_log()
+
+Retrieves laravel log
+
+Retrieve the laravel log if it exists.
+
+### Example
+
+* OAuth Authentication (bmltToken):
+
+```python
+import bmlt_client
+from bmlt_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000/main_server
+# See configuration.py for a list of all supported configuration parameters.
+configuration = bmlt_client.Configuration(
+    host = "http://localhost:8000/main_server"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with bmlt_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = bmlt_client.RootServerApi(api_client)
+
+    try:
+        # Retrieves laravel log
+        api_response = api_instance.get_laravel_log()
+        print("The response of RootServerApi->get_laravel_log:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling RootServerApi->get_laravel_log: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+**bytearray**
+
+### Authorization
+
+[bmltToken](../README.md#bmltToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/gzip, application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns when user is authenticated. |  -  |
+**401** | Returns when user is not authenticated. |  -  |
+**403** | Returns when user is unauthorized to perform action. |  -  |
+**404** | Returns when no laravel log file exists. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1094,9 +1185,8 @@ Retrieve a meeting.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.meeting import Meeting
 from bmlt_client.rest import ApiException
@@ -1134,6 +1224,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **meeting_id** | **int**| ID of meeting | 
@@ -1152,11 +1243,90 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when user is authenticated. |  -  |
 **401** | Returns when user is not authenticated. |  -  |
 **404** | Returns when no meeting exists. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_meeting_changes**
+> List[MeetingChangeResource] get_meeting_changes(meeting_id)
+
+Retrieve changes for a meeting
+
+Retrieve all changes made to a specific meeting.
+
+### Example
+
+* OAuth Authentication (bmltToken):
+
+```python
+import bmlt_client
+from bmlt_client.models.meeting_change_resource import MeetingChangeResource
+from bmlt_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000/main_server
+# See configuration.py for a list of all supported configuration parameters.
+configuration = bmlt_client.Configuration(
+    host = "http://localhost:8000/main_server"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with bmlt_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = bmlt_client.RootServerApi(api_client)
+    meeting_id = 1 # int | ID of the meeting
+
+    try:
+        # Retrieve changes for a meeting
+        api_response = api_instance.get_meeting_changes(meeting_id)
+        print("The response of RootServerApi->get_meeting_changes:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling RootServerApi->get_meeting_changes: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **meeting_id** | **int**| ID of the meeting | 
+
+### Return type
+
+[**List[MeetingChangeResource]**](MeetingChangeResource.md)
+
+### Authorization
+
+[bmltToken](../README.md#bmltToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of changes for the meeting. |  -  |
+**401** | Unauthorized. |  -  |
+**403** | Returns when unauthorized |  -  |
+**404** | Meeting not found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1170,9 +1340,8 @@ Retrieve meetings for authenticated user.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.meeting import Meeting
 from bmlt_client.rest import ApiException
@@ -1213,6 +1382,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **meeting_ids** | **str**| comma delimited meeting ids | [optional] 
@@ -1234,6 +1404,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | List of meetings. |  -  |
@@ -1251,9 +1422,8 @@ Retrieve a single root server id.
 
 ### Example
 
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.root_server import RootServer
 from bmlt_client.rest import ApiException
@@ -1285,6 +1455,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **root_server_id** | **int**| ID of root server | 
@@ -1303,6 +1474,7 @@ No authorization required
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response. |  -  |
@@ -1319,10 +1491,8 @@ Retrieve root servers.
 
 ### Example
 
-* OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.root_server import RootServer
 from bmlt_client.rest import ApiException
@@ -1334,12 +1504,6 @@ configuration = bmlt_client.Configuration(
     host = "http://localhost:8000/main_server"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with bmlt_client.ApiClient(configuration) as api_client:
@@ -1358,6 +1522,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1366,7 +1531,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[bmltToken](../README.md#bmltToken)
+No authorization required
 
 ### HTTP request headers
 
@@ -1374,6 +1539,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful response. |  -  |
@@ -1391,9 +1557,8 @@ Retrieve service bodies for authenticated user.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.service_body import ServiceBody
 from bmlt_client.rest import ApiException
@@ -1429,6 +1594,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1445,6 +1611,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when user is authenticated. |  -  |
@@ -1462,9 +1629,8 @@ Retrieve a single service body by id.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.service_body import ServiceBody
 from bmlt_client.rest import ApiException
@@ -1502,6 +1668,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_body_id** | **int**| ID of service body | 
@@ -1520,6 +1687,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when user is authenticated. |  -  |
@@ -1538,9 +1706,8 @@ Retrieve single user.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.user import User
 from bmlt_client.rest import ApiException
@@ -1578,6 +1745,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| ID of user | 
@@ -1596,6 +1764,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when user is authenticated. |  -  |
@@ -1614,9 +1783,8 @@ Retrieve users for authenticated user.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.user import User
 from bmlt_client.rest import ApiException
@@ -1652,6 +1820,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -1668,6 +1837,7 @@ This endpoint does not need any parameter.
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns when user is authenticated. |  -  |
@@ -1685,9 +1855,8 @@ Patches a user by id.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.user_partial_update import UserPartialUpdate
 from bmlt_client.rest import ApiException
@@ -1724,6 +1893,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| ID of user | 
@@ -1743,6 +1913,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -1763,9 +1934,8 @@ Patches a single format by id.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.format_partial_update import FormatPartialUpdate
 from bmlt_client.rest import ApiException
@@ -1802,6 +1972,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **format_id** | **int**| ID of format | 
@@ -1821,6 +1992,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -1841,9 +2013,8 @@ Patches a meeting by id
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.meeting_partial_update import MeetingPartialUpdate
 from bmlt_client.rest import ApiException
@@ -1880,6 +2051,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **meeting_id** | **int**| ID of meeting | 
@@ -1899,6 +2071,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -1919,9 +2092,8 @@ Patches a single service body by id.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.service_body_partial_update import ServiceBodyPartialUpdate
 from bmlt_client.rest import ApiException
@@ -1958,6 +2130,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_body_id** | **int**| ID of service body | 
@@ -1977,6 +2150,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -1997,9 +2171,8 @@ Updates a format.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.format_update import FormatUpdate
 from bmlt_client.rest import ApiException
@@ -2036,6 +2209,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **format_id** | **int**| ID of format | 
@@ -2055,6 +2229,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -2075,9 +2250,8 @@ Updates a meeting.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.meeting_update import MeetingUpdate
 from bmlt_client.rest import ApiException
@@ -2114,6 +2288,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **meeting_id** | **int**| ID of meeting | 
@@ -2133,6 +2308,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -2153,9 +2329,8 @@ Updates a single service body.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.service_body_update import ServiceBodyUpdate
 from bmlt_client.rest import ApiException
@@ -2192,6 +2367,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_body_id** | **int**| ID of service body | 
@@ -2211,6 +2387,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |
@@ -2231,9 +2408,8 @@ Updates a user.
 ### Example
 
 * OAuth Authentication (bmltToken):
+
 ```python
-import time
-import os
 import bmlt_client
 from bmlt_client.models.user_update import UserUpdate
 from bmlt_client.rest import ApiException
@@ -2270,6 +2446,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user_id** | **int**| ID of user | 
@@ -2289,6 +2466,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Success. |  -  |

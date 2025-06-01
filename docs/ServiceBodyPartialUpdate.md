@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **parent_id** | **int** |  | [optional] 
@@ -25,12 +26,12 @@ json = "{}"
 # create an instance of ServiceBodyPartialUpdate from a JSON string
 service_body_partial_update_instance = ServiceBodyPartialUpdate.from_json(json)
 # print the JSON string representation of the object
-print ServiceBodyPartialUpdate.to_json()
+print(ServiceBodyPartialUpdate.to_json())
 
 # convert the object into a dict
 service_body_partial_update_dict = service_body_partial_update_instance.to_dict()
 # create an instance of ServiceBodyPartialUpdate from a dict
-service_body_partial_update_form_dict = service_body_partial_update.from_dict(service_body_partial_update_dict)
+service_body_partial_update_from_dict = ServiceBodyPartialUpdate.from_dict(service_body_partial_update_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

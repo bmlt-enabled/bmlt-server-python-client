@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.format_update import FormatUpdate  # noqa: E501
+from bmlt_client.models.format_update import FormatUpdate
 
 class TestFormatUpdate(unittest.TestCase):
     """FormatUpdate unit test stubs"""
@@ -28,12 +27,12 @@ class TestFormatUpdate(unittest.TestCase):
 
     def make_instance(self, include_optional) -> FormatUpdate:
         """Test FormatUpdate
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `FormatUpdate`
         """
-        model = FormatUpdate()  # noqa: E501
+        model = FormatUpdate()
         if include_optional:
             return FormatUpdate(
                 world_id = 'string',

@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.server_error import ServerError  # noqa: E501
+from bmlt_client.models.server_error import ServerError
 
 class TestServerError(unittest.TestCase):
     """ServerError unit test stubs"""
@@ -28,12 +27,12 @@ class TestServerError(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ServerError:
         """Test ServerError
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ServerError`
         """
-        model = ServerError()  # noqa: E501
+        model = ServerError()
         if include_optional:
             return ServerError(
                 message = 'Server Error'

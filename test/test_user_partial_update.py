@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.user_partial_update import UserPartialUpdate  # noqa: E501
+from bmlt_client.models.user_partial_update import UserPartialUpdate
 
 class TestUserPartialUpdate(unittest.TestCase):
     """UserPartialUpdate unit test stubs"""
@@ -28,12 +27,12 @@ class TestUserPartialUpdate(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UserPartialUpdate:
         """Test UserPartialUpdate
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserPartialUpdate`
         """
-        model = UserPartialUpdate()  # noqa: E501
+        model = UserPartialUpdate()
         if include_optional:
             return UserPartialUpdate(
                 username = 'string',
@@ -41,7 +40,7 @@ class TestUserPartialUpdate(unittest.TestCase):
                 display_name = 'string',
                 description = 'string',
                 email = 'string',
-                owner_id = '0',
+                owner_id = 0,
                 password = 'string'
             )
         else:

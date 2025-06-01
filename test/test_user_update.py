@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.user_update import UserUpdate  # noqa: E501
+from bmlt_client.models.user_update import UserUpdate
 
 class TestUserUpdate(unittest.TestCase):
     """UserUpdate unit test stubs"""
@@ -28,12 +27,12 @@ class TestUserUpdate(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UserUpdate:
         """Test UserUpdate
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserUpdate`
         """
-        model = UserUpdate()  # noqa: E501
+        model = UserUpdate()
         if include_optional:
             return UserUpdate(
                 username = 'string',
@@ -41,7 +40,7 @@ class TestUserUpdate(unittest.TestCase):
                 display_name = 'string',
                 description = 'string',
                 email = 'string',
-                owner_id = '0',
+                owner_id = 0,
                 password = 'string'
             )
         else:

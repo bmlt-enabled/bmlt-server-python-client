@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **source_id** | **int** |  | 
@@ -22,12 +23,12 @@ json = "{}"
 # create an instance of RootServer from a JSON string
 root_server_instance = RootServer.from_json(json)
 # print the JSON string representation of the object
-print RootServer.to_json()
+print(RootServer.to_json())
 
 # convert the object into a dict
 root_server_dict = root_server_instance.to_dict()
 # create an instance of RootServer from a dict
-root_server_form_dict = root_server.from_dict(root_server_dict)
+root_server_from_dict = RootServer.from_dict(root_server_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

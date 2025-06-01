@@ -23,6 +23,7 @@ bmlt_client/models/format_translation.py
 bmlt_client/models/format_update.py
 bmlt_client/models/meeting.py
 bmlt_client/models/meeting_base.py
+bmlt_client/models/meeting_change_resource.py
 bmlt_client/models/meeting_create.py
 bmlt_client/models/meeting_partial_update.py
 bmlt_client/models/meeting_update.py
@@ -60,6 +61,7 @@ docs/FormatTranslation.md
 docs/FormatUpdate.md
 docs/Meeting.md
 docs/MeetingBase.md
+docs/MeetingChangeResource.md
 docs/MeetingCreate.md
 docs/MeetingPartialUpdate.md
 docs/MeetingUpdate.md
@@ -103,6 +105,7 @@ test/test_format_translation.py
 test/test_format_update.py
 test/test_meeting.py
 test/test_meeting_base.py
+test/test_meeting_change_resource.py
 test/test_meeting_create.py
 test/test_meeting_partial_update.py
 test/test_meeting_update.py

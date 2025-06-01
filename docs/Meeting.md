@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **service_body_id** | **int** |  | 
@@ -38,8 +39,9 @@ Name | Type | Description | Notes
 **contact_email_1** | **str** |  | [optional] 
 **contact_email_2** | **str** |  | [optional] 
 **bus_lines** | **str** |  | [optional] 
-**train_line** | **str** |  | [optional] 
+**train_lines** | **str** |  | [optional] 
 **comments** | **str** |  | [optional] 
+**custom_fields** | **Dict[str, str]** |  | [optional] 
 **id** | **int** |  | 
 
 ## Example
@@ -52,12 +54,12 @@ json = "{}"
 # create an instance of Meeting from a JSON string
 meeting_instance = Meeting.from_json(json)
 # print the JSON string representation of the object
-print Meeting.to_json()
+print(Meeting.to_json())
 
 # convert the object into a dict
 meeting_dict = meeting_instance.to_dict()
 # create an instance of Meeting from a dict
-meeting_form_dict = meeting.from_dict(meeting_dict)
+meeting_from_dict = Meeting.from_dict(meeting_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

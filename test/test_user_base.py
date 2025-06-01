@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.user_base import UserBase  # noqa: E501
+from bmlt_client.models.user_base import UserBase
 
 class TestUserBase(unittest.TestCase):
     """UserBase unit test stubs"""
@@ -28,12 +27,12 @@ class TestUserBase(unittest.TestCase):
 
     def make_instance(self, include_optional) -> UserBase:
         """Test UserBase
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `UserBase`
         """
-        model = UserBase()  # noqa: E501
+        model = UserBase()
         if include_optional:
             return UserBase(
                 username = 'string',
@@ -41,7 +40,7 @@ class TestUserBase(unittest.TestCase):
                 display_name = 'string',
                 description = 'string',
                 email = 'string',
-                owner_id = '0'
+                owner_id = 0
             )
         else:
             return UserBase(

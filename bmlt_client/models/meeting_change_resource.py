@@ -17,17 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ConflictError(BaseModel):
+class MeetingChangeResource(BaseModel):
     """
-    ConflictError
+    MeetingChangeResource
     """ # noqa: E501
-    message: StrictStr
-    __properties: ClassVar[List[str]] = ["message"]
+    date_string: Optional[StrictStr] = Field(default=None, description="Human-readable date and time.", alias="dateString")
+    user_name: Optional[StrictStr] = Field(default=None, description="Name of the user who made the change.", alias="userName")
+    service_body_name: Optional[StrictStr] = Field(default=None, description="Name of the service body related to the meeting.", alias="serviceBodyName")
+    details: Optional[List[StrictStr]] = Field(default=None, description="List of details about the changes.")
+    __properties: ClassVar[List[str]] = ["dateString", "userName", "serviceBodyName", "details"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -47,7 +50,7 @@ class ConflictError(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ConflictError from a JSON string"""
+        """Create an instance of MeetingChangeResource from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -72,7 +75,7 @@ class ConflictError(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ConflictError from a dict"""
+        """Create an instance of MeetingChangeResource from a dict"""
         if obj is None:
             return None
 
@@ -80,7 +83,10 @@ class ConflictError(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "message": obj.get("message")
+            "dateString": obj.get("dateString"),
+            "userName": obj.get("userName"),
+            "serviceBodyName": obj.get("serviceBodyName"),
+            "details": obj.get("details")
         })
         return _obj
 

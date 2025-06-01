@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.root_server_base import RootServerBase  # noqa: E501
+from bmlt_client.models.root_server_base import RootServerBase
 
 class TestRootServerBase(unittest.TestCase):
     """RootServerBase unit test stubs"""
@@ -28,12 +27,12 @@ class TestRootServerBase(unittest.TestCase):
 
     def make_instance(self, include_optional) -> RootServerBase:
         """Test RootServerBase
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `RootServerBase`
         """
-        model = RootServerBase()  # noqa: E501
+        model = RootServerBase()
         if include_optional:
             return RootServerBase(
                 source_id = 0,

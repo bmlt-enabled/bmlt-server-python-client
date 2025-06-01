@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.token import Token  # noqa: E501
+from bmlt_client.models.token import Token
 
 class TestToken(unittest.TestCase):
     """Token unit test stubs"""
@@ -28,12 +27,12 @@ class TestToken(unittest.TestCase):
 
     def make_instance(self, include_optional) -> Token:
         """Test Token
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `Token`
         """
-        model = Token()  # noqa: E501
+        model = Token()
         if include_optional:
             return Token(
                 access_token = '2|tR6PIqa8tiBJWMu4zyb3qw4eECuERjLd7xeLKgBu',

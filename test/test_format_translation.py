@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.format_translation import FormatTranslation  # noqa: E501
+from bmlt_client.models.format_translation import FormatTranslation
 
 class TestFormatTranslation(unittest.TestCase):
     """FormatTranslation unit test stubs"""
@@ -28,12 +27,12 @@ class TestFormatTranslation(unittest.TestCase):
 
     def make_instance(self, include_optional) -> FormatTranslation:
         """Test FormatTranslation
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `FormatTranslation`
         """
-        model = FormatTranslation()  # noqa: E501
+        model = FormatTranslation()
         if include_optional:
             return FormatTranslation(
                 key = '',

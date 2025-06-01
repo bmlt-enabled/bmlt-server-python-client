@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.service_body_partial_update import ServiceBodyPartialUpdate  # noqa: E501
+from bmlt_client.models.service_body_partial_update import ServiceBodyPartialUpdate
 
 class TestServiceBodyPartialUpdate(unittest.TestCase):
     """ServiceBodyPartialUpdate unit test stubs"""
@@ -28,12 +27,12 @@ class TestServiceBodyPartialUpdate(unittest.TestCase):
 
     def make_instance(self, include_optional) -> ServiceBodyPartialUpdate:
         """Test ServiceBodyPartialUpdate
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `ServiceBodyPartialUpdate`
         """
-        model = ServiceBodyPartialUpdate()  # noqa: E501
+        model = ServiceBodyPartialUpdate()
         if include_optional:
             return ServiceBodyPartialUpdate(
                 parent_id = 0,

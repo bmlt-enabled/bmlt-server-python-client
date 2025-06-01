@@ -13,9 +13,8 @@
 
 
 import unittest
-import datetime
 
-from bmlt_client.models.not_found_error import NotFoundError  # noqa: E501
+from bmlt_client.models.not_found_error import NotFoundError
 
 class TestNotFoundError(unittest.TestCase):
     """NotFoundError unit test stubs"""
@@ -28,12 +27,12 @@ class TestNotFoundError(unittest.TestCase):
 
     def make_instance(self, include_optional) -> NotFoundError:
         """Test NotFoundError
-            include_option is a boolean, when False only required
+            include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
         # uncomment below to create an instance of `NotFoundError`
         """
-        model = NotFoundError()  # noqa: E501
+        model = NotFoundError()
         if include_optional:
             return NotFoundError(
                 message = 'The requested resource was not found.'

@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **parent_id** | **int** |  | [optional] 
@@ -25,12 +26,12 @@ json = "{}"
 # create an instance of ServiceBodyBase from a JSON string
 service_body_base_instance = ServiceBodyBase.from_json(json)
 # print the JSON string representation of the object
-print ServiceBodyBase.to_json()
+print(ServiceBodyBase.to_json())
 
 # convert the object into a dict
 service_body_base_dict = service_body_base_instance.to_dict()
 # create an instance of ServiceBodyBase from a dict
-service_body_base_form_dict = service_body_base.from_dict(service_body_base_dict)
+service_body_base_from_dict = ServiceBodyBase.from_dict(service_body_base_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

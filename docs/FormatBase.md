@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **world_id** | **str** |  | [optional] 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of FormatBase from a JSON string
 format_base_instance = FormatBase.from_json(json)
 # print the JSON string representation of the object
-print FormatBase.to_json()
+print(FormatBase.to_json())
 
 # convert the object into a dict
 format_base_dict = format_base_instance.to_dict()
 # create an instance of FormatBase from a dict
-format_base_form_dict = format_base.from_dict(format_base_dict)
+format_base_from_dict = FormatBase.from_dict(format_base_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
