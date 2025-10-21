@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 # import models into model package
 from bmlt_client.models.authentication_error import AuthenticationError
 from bmlt_client.models.authorization_error import AuthorizationError
@@ -50,3 +49,4 @@ from bmlt_client.models.user_create import UserCreate
 from bmlt_client.models.user_partial_update import UserPartialUpdate
 from bmlt_client.models.user_update import UserUpdate
 from bmlt_client.models.validation_error import ValidationError
+

@@ -26,20 +26,20 @@ class MeetingPartialUpdate(BaseModel):
     """
     MeetingPartialUpdate
     """ # noqa: E501
-    service_body_id: StrictInt = Field(alias="serviceBodyId")
-    format_ids: List[StrictInt] = Field(alias="formatIds")
-    venue_type: StrictInt = Field(alias="venueType")
+    service_body_id: Optional[StrictInt] = Field(default=None, alias="serviceBodyId")
+    format_ids: Optional[List[StrictInt]] = Field(default=None, alias="formatIds")
+    venue_type: Optional[StrictInt] = Field(default=None, alias="venueType")
     temporarily_virtual: Optional[StrictBool] = Field(default=None, alias="temporarilyVirtual")
-    day: StrictInt
-    start_time: StrictStr = Field(alias="startTime")
-    duration: StrictStr
+    day: Optional[StrictInt] = None
+    start_time: Optional[StrictStr] = Field(default=None, alias="startTime")
+    duration: Optional[StrictStr] = None
     time_zone: Optional[StrictStr] = Field(default=None, alias="timeZone")
-    latitude: Union[StrictFloat, StrictInt]
-    longitude: Union[StrictFloat, StrictInt]
-    published: StrictBool
+    latitude: Optional[Union[StrictFloat, StrictInt]] = None
+    longitude: Optional[Union[StrictFloat, StrictInt]] = None
+    published: Optional[StrictBool] = None
     email: Optional[StrictStr] = None
     world_id: Optional[StrictStr] = Field(default=None, alias="worldId")
-    name: StrictStr
+    name: Optional[StrictStr] = None
     location_text: Optional[StrictStr] = None
     location_info: Optional[StrictStr] = None
     location_street: Optional[StrictStr] = None

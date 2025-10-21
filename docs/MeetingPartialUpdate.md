@@ -5,20 +5,20 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**service_body_id** | **int** |  | 
-**format_ids** | **List[int]** |  | 
-**venue_type** | **int** |  | 
+**service_body_id** | **int** |  | [optional] 
+**format_ids** | **List[int]** |  | [optional] 
+**venue_type** | **int** |  | [optional] 
 **temporarily_virtual** | **bool** |  | [optional] 
-**day** | **int** |  | 
-**start_time** | **str** |  | 
-**duration** | **str** |  | 
+**day** | **int** |  | [optional] 
+**start_time** | **str** |  | [optional] 
+**duration** | **str** |  | [optional] 
 **time_zone** | **str** |  | [optional] 
-**latitude** | **float** |  | 
-**longitude** | **float** |  | 
-**published** | **bool** |  | 
+**latitude** | **float** |  | [optional] 
+**longitude** | **float** |  | [optional] 
+**published** | **bool** |  | [optional] 
 **email** | **str** |  | [optional] 
 **world_id** | **str** |  | [optional] 
-**name** | **str** |  | 
+**name** | **str** |  | [optional] 
 **location_text** | **str** |  | [optional] 
 **location_info** | **str** |  | [optional] 
 **location_street** | **str** |  | [optional] 

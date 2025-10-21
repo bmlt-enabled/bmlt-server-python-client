@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBytes, StrictInt, StrictStr
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from bmlt_client.models.error_test import ErrorTest
@@ -7137,6 +7137,7 @@ class RootServerApi:
         self,
         meeting_id: Annotated[StrictInt, Field(description="ID of meeting")],
         meeting_partial_update: Annotated[MeetingPartialUpdate, Field(description="Pass in fields you want to update.")],
+        skip_venue_type_location_validation: Annotated[Optional[StrictBool], Field(description="specify true to skip venue type location validation")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7158,6 +7159,8 @@ class RootServerApi:
         :type meeting_id: int
         :param meeting_partial_update: Pass in fields you want to update. (required)
         :type meeting_partial_update: MeetingPartialUpdate
+        :param skip_venue_type_location_validation: specify true to skip venue type location validation
+        :type skip_venue_type_location_validation: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7183,6 +7186,7 @@ class RootServerApi:
         _param = self._patch_meeting_serialize(
             meeting_id=meeting_id,
             meeting_partial_update=meeting_partial_update,
+            skip_venue_type_location_validation=skip_venue_type_location_validation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7212,6 +7216,7 @@ class RootServerApi:
         self,
         meeting_id: Annotated[StrictInt, Field(description="ID of meeting")],
         meeting_partial_update: Annotated[MeetingPartialUpdate, Field(description="Pass in fields you want to update.")],
+        skip_venue_type_location_validation: Annotated[Optional[StrictBool], Field(description="specify true to skip venue type location validation")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7233,6 +7238,8 @@ class RootServerApi:
         :type meeting_id: int
         :param meeting_partial_update: Pass in fields you want to update. (required)
         :type meeting_partial_update: MeetingPartialUpdate
+        :param skip_venue_type_location_validation: specify true to skip venue type location validation
+        :type skip_venue_type_location_validation: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7258,6 +7265,7 @@ class RootServerApi:
         _param = self._patch_meeting_serialize(
             meeting_id=meeting_id,
             meeting_partial_update=meeting_partial_update,
+            skip_venue_type_location_validation=skip_venue_type_location_validation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7287,6 +7295,7 @@ class RootServerApi:
         self,
         meeting_id: Annotated[StrictInt, Field(description="ID of meeting")],
         meeting_partial_update: Annotated[MeetingPartialUpdate, Field(description="Pass in fields you want to update.")],
+        skip_venue_type_location_validation: Annotated[Optional[StrictBool], Field(description="specify true to skip venue type location validation")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7308,6 +7317,8 @@ class RootServerApi:
         :type meeting_id: int
         :param meeting_partial_update: Pass in fields you want to update. (required)
         :type meeting_partial_update: MeetingPartialUpdate
+        :param skip_venue_type_location_validation: specify true to skip venue type location validation
+        :type skip_venue_type_location_validation: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -7333,6 +7344,7 @@ class RootServerApi:
         _param = self._patch_meeting_serialize(
             meeting_id=meeting_id,
             meeting_partial_update=meeting_partial_update,
+            skip_venue_type_location_validation=skip_venue_type_location_validation,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -7357,6 +7369,7 @@ class RootServerApi:
         self,
         meeting_id,
         meeting_partial_update,
+        skip_venue_type_location_validation,
         _request_auth,
         _content_type,
         _headers,
@@ -7381,6 +7394,10 @@ class RootServerApi:
         if meeting_id is not None:
             _path_params['meetingId'] = meeting_id
         # process the query parameters
+        if skip_venue_type_location_validation is not None:
+            
+            _query_params.append(('skipVenueTypeLocationValidation', skip_venue_type_location_validation))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
