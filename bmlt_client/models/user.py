@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -33,7 +34,8 @@ class User(BaseModel):
     email: StrictStr
     owner_id: StrictInt = Field(alias="ownerId")
     id: StrictInt
-    __properties: ClassVar[List[str]] = ["username", "type", "displayName", "description", "email", "ownerId", "id"]
+    last_login_at: Optional[datetime] = Field(default=None, alias="lastLoginAt")
+    __properties: ClassVar[List[str]] = ["username", "type", "displayName", "description", "email", "ownerId", "id", "lastLoginAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +76,11 @@ class User(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if last_login_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_login_at is None and "last_login_at" in self.model_fields_set:
+            _dict['lastLoginAt'] = None
+
         return _dict
 
     @classmethod
@@ -92,7 +99,8 @@ class User(BaseModel):
             "description": obj.get("description"),
             "email": obj.get("email"),
             "ownerId": obj.get("ownerId"),
-            "id": obj.get("id")
+            "id": obj.get("id"),
+            "lastLoginAt": obj.get("lastLoginAt")
         })
         return _obj
 

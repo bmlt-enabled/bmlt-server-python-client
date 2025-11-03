@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **email** | **str** |  | 
 **owner_id** | **int** |  | 
 **id** | **int** |  | 
+**last_login_at** | **datetime** |  | [optional] 
 
 ## Example
 
