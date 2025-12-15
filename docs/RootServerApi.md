@@ -26,6 +26,7 @@ Method | HTTP request | Description
 [**get_root_servers**](RootServerApi.md#get_root_servers) | **GET** /api/v1/rootservers | Retrieves root servers
 [**get_service_bodies**](RootServerApi.md#get_service_bodies) | **GET** /api/v1/servicebodies | Retrieves service bodies
 [**get_service_body**](RootServerApi.md#get_service_body) | **GET** /api/v1/servicebodies/{serviceBodyId} | Retrieves a service body
+[**get_settings**](RootServerApi.md#get_settings) | **GET** /api/v1/settings | Retrieves all settings
 [**get_user**](RootServerApi.md#get_user) | **GET** /api/v1/users/{userId} | Retrieves a single user
 [**get_users**](RootServerApi.md#get_users) | **GET** /api/v1/users | Retrieves users
 [**partial_update_user**](RootServerApi.md#partial_update_user) | **PATCH** /api/v1/users/{userId} | Patches a user
@@ -35,6 +36,7 @@ Method | HTTP request | Description
 [**update_format**](RootServerApi.md#update_format) | **PUT** /api/v1/formats/{formatId} | Updates a format
 [**update_meeting**](RootServerApi.md#update_meeting) | **PUT** /api/v1/meetings/{meetingId} | Updates a meeting
 [**update_service_body**](RootServerApi.md#update_service_body) | **PUT** /api/v1/servicebodies/{serviceBodyId} | Updates a Service Body
+[**update_settings**](RootServerApi.md#update_settings) | **PATCH** /api/v1/settings | Update settings
 [**update_user**](RootServerApi.md#update_user) | **PUT** /api/v1/users/{userId} | Update single user
 
 
@@ -1696,6 +1698,79 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_settings**
+> SettingsObject get_settings()
+
+Retrieves all settings
+
+Retrieve all server settings. Only accessible to server administrators.
+
+### Example
+
+* OAuth Authentication (bmltToken):
+
+```python
+import bmlt_client
+from bmlt_client.models.settings_object import SettingsObject
+from bmlt_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000/main_server
+# See configuration.py for a list of all supported configuration parameters.
+configuration = bmlt_client.Configuration(
+    host = "http://localhost:8000/main_server"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with bmlt_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = bmlt_client.RootServerApi(api_client)
+
+    try:
+        # Retrieves all settings
+        api_response = api_instance.get_settings()
+        print("The response of RootServerApi->get_settings:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling RootServerApi->get_settings: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**SettingsObject**](SettingsObject.md)
+
+### Authorization
+
+[bmltToken](../README.md#bmltToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns when user is authenticated as admin. |  -  |
+**401** | Returns when not authenticated |  -  |
+**403** | Returns when user is not an admin |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_user**
 > User get_user(user_id)
 
@@ -2396,6 +2471,82 @@ void (empty response body)
 **401** | Returns when user is not authenticated. |  -  |
 **403** | Returns when user is unauthorized to perform action. |  -  |
 **404** | Returns when no service body exists. |  -  |
+**422** | Validation error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_settings**
+> update_settings(settings_update)
+
+Update settings
+
+Updates one or more server settings. Only accessible to server administrators.
+
+### Example
+
+* OAuth Authentication (bmltToken):
+
+```python
+import bmlt_client
+from bmlt_client.models.settings_update import SettingsUpdate
+from bmlt_client.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost:8000/main_server
+# See configuration.py for a list of all supported configuration parameters.
+configuration = bmlt_client.Configuration(
+    host = "http://localhost:8000/main_server"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with bmlt_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = bmlt_client.RootServerApi(api_client)
+    settings_update = bmlt_client.SettingsUpdate() # SettingsUpdate | Pass in settings object with values to update
+
+    try:
+        # Update settings
+        api_instance.update_settings(settings_update)
+    except Exception as e:
+        print("Exception when calling RootServerApi->update_settings: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **settings_update** | [**SettingsUpdate**](SettingsUpdate.md)| Pass in settings object with values to update | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bmltToken](../README.md#bmltToken)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Success. |  -  |
+**401** | Returns when user is not authenticated. |  -  |
+**403** | Returns when user is not an admin. |  -  |
 **422** | Validation error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

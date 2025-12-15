@@ -56,6 +56,9 @@ __all__ = [
     "ServiceBodyCreate",
     "ServiceBodyPartialUpdate",
     "ServiceBodyUpdate",
+    "SettingsBase",
+    "SettingsObject",
+    "SettingsUpdate",
     "Token",
     "TokenCredentials",
     "User",
@@ -109,6 +112,9 @@ from bmlt_client.models.service_body_base import ServiceBodyBase as ServiceBodyB
 from bmlt_client.models.service_body_create import ServiceBodyCreate as ServiceBodyCreate
 from bmlt_client.models.service_body_partial_update import ServiceBodyPartialUpdate as ServiceBodyPartialUpdate
 from bmlt_client.models.service_body_update import ServiceBodyUpdate as ServiceBodyUpdate
+from bmlt_client.models.settings_base import SettingsBase as SettingsBase
+from bmlt_client.models.settings_object import SettingsObject as SettingsObject
+from bmlt_client.models.settings_update import SettingsUpdate as SettingsUpdate
 from bmlt_client.models.token import Token as Token
 from bmlt_client.models.token_credentials import TokenCredentials as TokenCredentials
 from bmlt_client.models.user import User as User

@@ -39,6 +39,9 @@ bmlt_client/models/service_body_base.py
 bmlt_client/models/service_body_create.py
 bmlt_client/models/service_body_partial_update.py
 bmlt_client/models/service_body_update.py
+bmlt_client/models/settings_base.py
+bmlt_client/models/settings_object.py
+bmlt_client/models/settings_update.py
 bmlt_client/models/token.py
 bmlt_client/models/token_credentials.py
 bmlt_client/models/user.py
@@ -78,6 +81,9 @@ docs/ServiceBodyBase.md
 docs/ServiceBodyCreate.md
 docs/ServiceBodyPartialUpdate.md
 docs/ServiceBodyUpdate.md
+docs/SettingsBase.md
+docs/SettingsObject.md
+docs/SettingsUpdate.md
 docs/Token.md
 docs/TokenCredentials.md
 docs/User.md
@@ -93,4 +99,7 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_settings_base.py
+test/test_settings_object.py
+test/test_settings_update.py
 tox.ini

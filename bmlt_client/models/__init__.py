@@ -41,6 +41,9 @@ from bmlt_client.models.service_body_base import ServiceBodyBase
 from bmlt_client.models.service_body_create import ServiceBodyCreate
 from bmlt_client.models.service_body_partial_update import ServiceBodyPartialUpdate
 from bmlt_client.models.service_body_update import ServiceBodyUpdate
+from bmlt_client.models.settings_base import SettingsBase
+from bmlt_client.models.settings_object import SettingsObject
+from bmlt_client.models.settings_update import SettingsUpdate
 from bmlt_client.models.token import Token
 from bmlt_client.models.token_credentials import TokenCredentials
 from bmlt_client.models.user import User

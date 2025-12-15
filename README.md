@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *RootServerApi* | [**get_root_servers**](docs/RootServerApi.md#get_root_servers) | **GET** /api/v1/rootservers | Retrieves root servers
 *RootServerApi* | [**get_service_bodies**](docs/RootServerApi.md#get_service_bodies) | **GET** /api/v1/servicebodies | Retrieves service bodies
 *RootServerApi* | [**get_service_body**](docs/RootServerApi.md#get_service_body) | **GET** /api/v1/servicebodies/{serviceBodyId} | Retrieves a service body
+*RootServerApi* | [**get_settings**](docs/RootServerApi.md#get_settings) | **GET** /api/v1/settings | Retrieves all settings
 *RootServerApi* | [**get_user**](docs/RootServerApi.md#get_user) | **GET** /api/v1/users/{userId} | Retrieves a single user
 *RootServerApi* | [**get_users**](docs/RootServerApi.md#get_users) | **GET** /api/v1/users | Retrieves users
 *RootServerApi* | [**partial_update_user**](docs/RootServerApi.md#partial_update_user) | **PATCH** /api/v1/users/{userId} | Patches a user
@@ -119,6 +120,7 @@ Class | Method | HTTP request | Description
 *RootServerApi* | [**update_format**](docs/RootServerApi.md#update_format) | **PUT** /api/v1/formats/{formatId} | Updates a format
 *RootServerApi* | [**update_meeting**](docs/RootServerApi.md#update_meeting) | **PUT** /api/v1/meetings/{meetingId} | Updates a meeting
 *RootServerApi* | [**update_service_body**](docs/RootServerApi.md#update_service_body) | **PUT** /api/v1/servicebodies/{serviceBodyId} | Updates a Service Body
+*RootServerApi* | [**update_settings**](docs/RootServerApi.md#update_settings) | **PATCH** /api/v1/settings | Update settings
 *RootServerApi* | [**update_user**](docs/RootServerApi.md#update_user) | **PUT** /api/v1/users/{userId} | Update single user
 
 
@@ -152,6 +154,9 @@ Class | Method | HTTP request | Description
  - [ServiceBodyCreate](docs/ServiceBodyCreate.md)
  - [ServiceBodyPartialUpdate](docs/ServiceBodyPartialUpdate.md)
  - [ServiceBodyUpdate](docs/ServiceBodyUpdate.md)
+ - [SettingsBase](docs/SettingsBase.md)
+ - [SettingsObject](docs/SettingsObject.md)
+ - [SettingsUpdate](docs/SettingsUpdate.md)
  - [Token](docs/Token.md)
  - [TokenCredentials](docs/TokenCredentials.md)
  - [User](docs/User.md)
