@@ -41,6 +41,7 @@ Name | Type | Description | Notes
 **bus_lines** | **str** |  | [optional] 
 **train_lines** | **str** |  | [optional] 
 **comments** | **str** |  | [optional] 
+**admin_notes** | **str** |  | [optional] 
 **custom_fields** | **Dict[str, str]** |  | [optional] 
 
 ## Example

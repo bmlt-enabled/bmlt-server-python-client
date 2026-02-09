@@ -62,8 +62,9 @@ class MeetingPartialUpdate(BaseModel):
     bus_lines: Optional[StrictStr] = None
     train_lines: Optional[StrictStr] = None
     comments: Optional[StrictStr] = None
+    admin_notes: Optional[StrictStr] = None
     custom_fields: Optional[Dict[str, StrictStr]] = Field(default=None, alias="customFields")
-    __properties: ClassVar[List[str]] = ["serviceBodyId", "formatIds", "venueType", "temporarilyVirtual", "day", "startTime", "duration", "timeZone", "latitude", "longitude", "published", "email", "worldId", "name", "location_text", "location_info", "location_street", "location_neighborhood", "location_city_subsection", "location_municipality", "location_sub_province", "location_province", "location_postal_code_1", "location_nation", "phone_meeting_number", "virtual_meeting_link", "virtual_meeting_additional_info", "contact_name_1", "contact_name_2", "contact_phone_1", "contact_phone_2", "contact_email_1", "contact_email_2", "bus_lines", "train_lines", "comments", "customFields"]
+    __properties: ClassVar[List[str]] = ["serviceBodyId", "formatIds", "venueType", "temporarilyVirtual", "day", "startTime", "duration", "timeZone", "latitude", "longitude", "published", "email", "worldId", "name", "location_text", "location_info", "location_street", "location_neighborhood", "location_city_subsection", "location_municipality", "location_sub_province", "location_province", "location_postal_code_1", "location_nation", "phone_meeting_number", "virtual_meeting_link", "virtual_meeting_additional_info", "contact_name_1", "contact_name_2", "contact_phone_1", "contact_phone_2", "contact_email_1", "contact_email_2", "bus_lines", "train_lines", "comments", "admin_notes", "customFields"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -152,6 +153,7 @@ class MeetingPartialUpdate(BaseModel):
             "bus_lines": obj.get("bus_lines"),
             "train_lines": obj.get("train_lines"),
             "comments": obj.get("comments"),
+            "admin_notes": obj.get("admin_notes"),
             "customFields": obj.get("customFields")
         })
         return _obj

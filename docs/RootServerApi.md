@@ -804,11 +804,11 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_service_body**
-> delete_service_body(service_body_id)
+> delete_service_body(service_body_id, force=force)
 
 Deletes a service body
 
-Deletes a service body by id.
+Deletes a service body by id. If the service body has meetings, use force=true to delete them as well.
 
 ### Example
 
@@ -837,10 +837,11 @@ with bmlt_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = bmlt_client.RootServerApi(api_client)
     service_body_id = 1 # int | ID of service body
+    force = false # str | Force deletion of service body and all associated meetings (optional) (default to false)
 
     try:
         # Deletes a service body
-        api_instance.delete_service_body(service_body_id)
+        api_instance.delete_service_body(service_body_id, force=force)
     except Exception as e:
         print("Exception when calling RootServerApi->delete_service_body: %s\n" % e)
 ```
@@ -853,6 +854,7 @@ with bmlt_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **service_body_id** | **int**| ID of service body | 
+ **force** | **str**| Force deletion of service body and all associated meetings | [optional] [default to false]
 
 ### Return type
 
@@ -875,7 +877,7 @@ void (empty response body)
 **401** | Returns when user is not authenticated. |  -  |
 **403** | Returns when user is unauthorized to perform action. |  -  |
 **404** | Returns when no service body exists. |  -  |
-**409** | Returns when service body has children. |  -  |
+**409** | Returns when service body has children or meetings (when force&#x3D;false). |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

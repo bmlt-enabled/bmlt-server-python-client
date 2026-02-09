@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr, field_validator
 from typing import List, Optional, Tuple, Union
 from typing_extensions import Annotated
 from bmlt_client.models.error_test import ErrorTest
@@ -2818,6 +2818,7 @@ class RootServerApi:
     def delete_service_body(
         self,
         service_body_id: Annotated[StrictInt, Field(description="ID of service body")],
+        force: Annotated[Optional[StrictStr], Field(description="Force deletion of service body and all associated meetings")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2833,10 +2834,12 @@ class RootServerApi:
     ) -> None:
         """Deletes a service body
 
-        Deletes a service body by id.
+        Deletes a service body by id. If the service body has meetings, use force=true to delete them as well.
 
         :param service_body_id: ID of service body (required)
         :type service_body_id: int
+        :param force: Force deletion of service body and all associated meetings
+        :type force: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2861,6 +2864,7 @@ class RootServerApi:
 
         _param = self._delete_service_body_serialize(
             service_body_id=service_body_id,
+            force=force,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2889,6 +2893,7 @@ class RootServerApi:
     def delete_service_body_with_http_info(
         self,
         service_body_id: Annotated[StrictInt, Field(description="ID of service body")],
+        force: Annotated[Optional[StrictStr], Field(description="Force deletion of service body and all associated meetings")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2904,10 +2909,12 @@ class RootServerApi:
     ) -> ApiResponse[None]:
         """Deletes a service body
 
-        Deletes a service body by id.
+        Deletes a service body by id. If the service body has meetings, use force=true to delete them as well.
 
         :param service_body_id: ID of service body (required)
         :type service_body_id: int
+        :param force: Force deletion of service body and all associated meetings
+        :type force: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2932,6 +2939,7 @@ class RootServerApi:
 
         _param = self._delete_service_body_serialize(
             service_body_id=service_body_id,
+            force=force,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2960,6 +2968,7 @@ class RootServerApi:
     def delete_service_body_without_preload_content(
         self,
         service_body_id: Annotated[StrictInt, Field(description="ID of service body")],
+        force: Annotated[Optional[StrictStr], Field(description="Force deletion of service body and all associated meetings")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2975,10 +2984,12 @@ class RootServerApi:
     ) -> RESTResponseType:
         """Deletes a service body
 
-        Deletes a service body by id.
+        Deletes a service body by id. If the service body has meetings, use force=true to delete them as well.
 
         :param service_body_id: ID of service body (required)
         :type service_body_id: int
+        :param force: Force deletion of service body and all associated meetings
+        :type force: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3003,6 +3014,7 @@ class RootServerApi:
 
         _param = self._delete_service_body_serialize(
             service_body_id=service_body_id,
+            force=force,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3026,6 +3038,7 @@ class RootServerApi:
     def _delete_service_body_serialize(
         self,
         service_body_id,
+        force,
         _request_auth,
         _content_type,
         _headers,
@@ -3050,6 +3063,10 @@ class RootServerApi:
         if service_body_id is not None:
             _path_params['serviceBodyId'] = service_body_id
         # process the query parameters
+        if force is not None:
+            
+            _query_params.append(('force', force))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
